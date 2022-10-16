@@ -35,16 +35,16 @@ const carta3 = {
     }
 }
 const cartas = [carta0, carta1, carta2, carta3]
-var playerCard 
+var playerCard
 var iaCard
 // Cards - ↑
 
 function sortearCarta() {
     let playerDado = parseInt(Math.random() * cartas.length)
-    let iaDado 
+    let iaDado
     // player & ia dice ↑
 
-    do { iaDado = parseInt(Math.random() * cartas.length);} while (iaDado == playerDado)
+    do { iaDado = parseInt(Math.random() * cartas.length); } while (iaDado == playerDado)
     // validates wether dice1 != dice2
 
     playerCard = cartas[playerDado]
@@ -62,34 +62,34 @@ function exibirOpcoes() {
     let opcoes = document.querySelector('#opcoes')
     let opcoesText = ``
     let personImg
-    for (var atributo in playerCard.atributos){
-        personImg = ` <h2>Escolha o seu atributo</h2><br><img class='person-img' src='${playerCard.img}'><br>`
+    for (var atributo in playerCard.atributos) {
+        personImg = `<h2>Escolha o seu atributo</h2><br><img class='person-img' src='${playerCard.img}'><br>`
         opcoesText += `<br><input class='radio-atributos' type='radio' name='atributo' value='${atributo}'>${atributo.toUpperCase()}`
     }
-    opcoes.innerHTML =  personImg + opcoesText
+    opcoes.innerHTML = personImg + opcoesText
 }
 function escolha() {
     let radioAtributos = document.getElementsByName('atributo')
 
-    for (i=0; i < radioAtributos.length; i++){
+    for (i = 0; i < radioAtributos.length; i++) {
         if (radioAtributos[i].checked == true) {
             return radioAtributos[i].value
-        } else if (radioAtributos == 0){
+        } else if (radioAtributos == 0) {
             alert('no')
         }
     }
 }
 function jogar() {
     let escolhaJogador = escolha()
-    let atributoJogador = playerCard.atributos[escolhaJogador] 
+    let atributoJogador = playerCard.atributos[escolhaJogador]
     let atributoIa = iaCard.atributos[escolhaJogador]
     // Atributos ↑
-    if (escolhaJogador == null){
+    if (escolhaJogador == null) {
         return alert('Você precisa escolher um atributo!')
     }
     // Não escolheu atributo ↑
     let res = document.querySelector('#resultado')
-    if (atributoJogador > atributoIa){
+    if (atributoJogador > atributoIa) {
         res.innerHTML = `<h1 class="res-title" style='background-color:rgba(60, 158, 51, 0.713);'>Você ganhou! ${iaCard.nome} perdeu..</h1>`
     } else if (atributoJogador == atributoIa) {
         res.innerHTML = `<h1 class="res-title">Você empatou!</h1>`
