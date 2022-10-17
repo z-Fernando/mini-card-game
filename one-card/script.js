@@ -55,8 +55,8 @@ function sortearCarta() {
     btn.removeChild(btn.children[0])
     // removed buttons ↑
 
-     let form = document.querySelector('#form')
-     form.innerHTML += `<button type="button" id="btnJogar" onclick="jogar()">Jogar</button>`
+    let form = document.querySelector('#form')
+    form.innerHTML += `<button type="button" id="btnJogar" onclick="jogar()">Jogar</button>`
 
     exibirOpcoes()
 }
