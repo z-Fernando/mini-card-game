@@ -30,12 +30,11 @@ form {
     color: #ffffff;
 }
 button {
-    padding: 1em;
-    margin: 1.7em 0;
+    padding: 1.4em;
     border-radius: 50%;
     border: none;
-    font-size: 1.1em;
-    background-color: #7c7c7ca0;
+    font-size: 1.4em;
+    background-color: #0a719a42;
     color: azure;
 }
 button:hover {
@@ -47,4 +46,7 @@ button:hover {
     text-align: initial;
     color: white;
     position: relative;
+}
+#resultado {
+    margin: 1.3em;
 }
