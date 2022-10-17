@@ -1,2 +1,3 @@
-# mini-card-game
-Mini jogo que fiz para praticar HTML/CSS/Javascript
+# mini-games
+
+## Repositório que fiz para publicar alguns jogos que fiz a fins de aprendizado
