@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+}
+body {
+    font-size: 1.2em;
+    background-color: #303030;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+}
+form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 50vw;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+.person-img {
+    max-width: 300px;
+}
+.res-title {
+    padding: 1em;
+    color: #ffffff;
+}
+button {
+    padding: 1.4em;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.4em;
+    background-color: #0a719a42;
+    color: azure;
+}
+button:hover {
+    background-color: #0f7e61;
+    color: black;
+    cursor: pointer;
+}
+.opcoes {
+    text-align: initial;
+    color: azure;
+    position: relative;
+}
+#resultado {
+    margin: 1.3em;
+}
+
+#opcoes input {
+    margin: 0.6em 3.5rem;
+}

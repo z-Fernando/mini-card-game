@@ -34,64 +34,69 @@ const carta3 = {
         inteligencia: 6
     }
 }
-var cartas = [carta0, carta1, carta2, carta3]
-var playerCard 
+const cartas = [carta0, carta1, carta2, carta3]
+var playerCard
 var iaCard
-// Cartas - ↑
+// Cards - ↑
+
 function sortearCarta() {
     let playerDado = parseInt(Math.random() * cartas.length)
-    let iaDado 
-    do {
-        iaDado = parseInt(Math.random() * cartas.length);
-    } while (iaDado == playerDado)
+    let iaDado
+    // player & ia dice ↑
+
+    do { iaDado = parseInt(Math.random() * cartas.length); } while (iaDado == playerDado)
+    // validates wether dice1 != dice2
+
     playerCard = cartas[playerDado]
     iaCard = cartas[iaDado]
-    // Cartas aleatórias ↑
+    // players cards ↑
+
     let btn = document.querySelector('div.btnSortear')
     btn.removeChild(btn.children[0])
-    document.querySelector('#btnJogar').disabled = false
-    // Botões ↑
-    console.log(playerCard)
+    // removed buttons ↑
+
+    let form = document.querySelector('#form')
+    form.innerHTML += `<button type="button" id="btnJogar" onclick="jogar()">Jogar</button>`
+
     exibirOpcoes()
 }
-
 function exibirOpcoes() {
     let opcoes = document.querySelector('#opcoes')
     let opcoesText = ``
     let personImg
-    for (var atributo in playerCard.atributos){
-        personImg = ` <h2>Escolha o seu atributo</h2><br><img class='person-img' src='${playerCard.img}'><br>`
+    for (var atributo in playerCard.atributos) {
+        personImg = `<h2>Escolha o seu atributo</h2><br><img class='person-img' src='${playerCard.img}'><br>`
         opcoesText += `<br><input class='radio-atributos' type='radio' name='atributo' value='${atributo}'>${atributo.toUpperCase()}`
     }
-    opcoes.innerHTML =  personImg + opcoesText
+    opcoes.innerHTML = personImg + opcoesText
 }
 function escolha() {
     let radioAtributos = document.getElementsByName('atributo')
 
-    for (i=0; i < radioAtributos.length; i++){
+    for (i = 0; i < radioAtributos.length; i++) {
         if (radioAtributos[i].checked == true) {
             return radioAtributos[i].value
-        } else if (radioAtributos == 0){
+        } else if (radioAtributos == 0) {
             alert('no')
         }
     }
 }
 function jogar() {
     let escolhaJogador = escolha()
-    let atributoJogador = playerCard.atributos[escolhaJogador] 
+    let atributoJogador = playerCard.atributos[escolhaJogador]
     let atributoIa = iaCard.atributos[escolhaJogador]
     // Atributos ↑
-    if (escolhaJogador == null){
+    if (escolhaJogador == null) {
         return alert('Você precisa escolher um atributo!')
     }
     // Não escolheu atributo ↑
     let res = document.querySelector('#resultado')
-    if (atributoJogador > atributoIa){
-        res.innerHTML = `<h1 class="page-title">Você ganhou! ${iaCard.nome} perdeu..</h1>`
+    if (atributoJogador > atributoIa) {
+        res.innerHTML = `<h1 class="res-title" style='background-color:rgba(60, 158, 51, 0.713);'>Você ganhou! ${iaCard.nome} perdeu..</h1>`
     } else if (atributoJogador == atributoIa) {
-        res.innerHTML = `<h1 class="page-title">Você empatou!</h1>`
+        res.innerHTML = `<h1 class="res-title">Você empatou!</h1>`
     } else {
-        res.innerHTML = `<h1 class="page-title">Você perdeu! ${iaCard.nome} ganhou..</h1>`
+        res.innerHTML = `<h1 class="res-title" style='background-color:rgba(223, 72, 72, 0.713);'>Você perdeu! ${iaCard.nome} ganhou..</h1>`
     }
     console.log(escolhaJogador);
 
